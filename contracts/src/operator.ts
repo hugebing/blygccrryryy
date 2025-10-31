@@ -34,8 +34,8 @@ function getChainAndVault(net: NetName): { chain: Chain; vault: `0x${string}` } 
     return { chain: polygonAmoy, vault: v };
   }
   // default: sepolia
-  const v = process.env.VAULT_SEPOLIA as `0x${string}`;
-  if (!v) throw new Error('ENV VAULT_SEPOLIA missing');
+  const v = process.env.VAULT_Sepolia as `0x${string}`;
+  if (!v) throw new Error('ENV VAULT_Sepolia missing');
   return { chain: sepolia, vault: v };
 }
 

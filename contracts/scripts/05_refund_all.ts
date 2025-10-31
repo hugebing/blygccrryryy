@@ -3,7 +3,7 @@ import 'dotenv/config';
 import { ethers, network } from 'hardhat';
 
 const VAULTS: Record<string, string | undefined> = {
-  sepolia:         process.env.VAULT_SEPOLIA,
+  sepolia:         process.env.VAULT_Sepolia,
   arbitrumSepolia: process.env.VAULT_Arbitrum_Sepolia,
   baseSepolia:     process.env.VAULT_Base_Sepolia,
   optimismSepolia: process.env.VAULT_OP_Sepolia,

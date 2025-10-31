@@ -12,7 +12,7 @@ function billToBytes32(raw: string): `0x${string}` {
 
 function pickVault(): `0x${string}` {
   const map: Record<string, string | undefined> = {
-    sepolia:         process.env.VAULT_SEPOLIA,
+    sepolia:         process.env.VAULT_Sepolia,
     baseSepolia:     process.env.VAULT_Base_Sepolia,
     arbitrumSepolia: process.env.VAULT_Arbitrum_Sepolia,
     optimismSepolia: process.env.VAULT_OP_Sepolia,

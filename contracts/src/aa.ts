@@ -33,7 +33,7 @@ function getOwnerPk(): `0x${string}` {
 // ✅ 加入 ZD_* 與 ZD_RPC_* 兩種命名
 function getRpc(name: 'sepolia'|'arbitrumSepolia'|'baseSepolia'|'optimismSepolia'): string {
   const map: Record<string, string[]> = {
-    sepolia:          ['ZD_SEPOLIA',          'ZD_RPC_SEPOLIA'],
+    sepolia:          ['ZD_Sepolia',          'ZD_RPC_SEPOLIA'],
     arbitrumSepolia:  ['ZD_Arbitrum_Sepolia', 'ZD_RPC_Arbitrum_Sepolia', 'ZD_RPC_ARBITRUM_SEPOLIA'],
     baseSepolia:      ['ZD_Base_Sepolia',     'ZD_RPC_Base_Sepolia',     'ZD_RPC_BASE_SEPOLIA'],
     optimismSepolia:  ['ZD_OP_Sepolia',       'ZD_RPC_OP_Sepolia',       'ZD_RPC_OP_SEPOLIA'],

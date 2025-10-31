@@ -1,11 +1,12 @@
 // src/merkle.ts
 import { keccak256, concat, Hex, toHex, encodeAbiParameters, parseAbiParameters } from 'viem';
 
+// src/merkle.ts
 export type Item = {
-  ercCode: number;        // 20/21/23/43
+  ercCode: 20 | 21 | 23 | 43;   // ← 用字面量聯集，別用 number
   token: `0x${string}`;
-  id: bigint;             // ERC20=0 / ERC721&1155=tokenId
-  amount: bigint;         // ERC721=1
+  id: bigint;
+  amount: bigint;
 };
 
 export function sortItems(items: Item[]): Item[] {

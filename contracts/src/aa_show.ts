@@ -44,7 +44,7 @@ async function show(chain: any, zdRpc: string) {
   console.log(`${chain.name} Kernel:`, client.account.address);
 }
 
-// ZD_SEPOLIA=
+// ZD_Sepolia=
 // ZD_Arbitrum_Sepolia=
 // ZD_Base_Sepolia=
 // ZD_OP_Sepolia=

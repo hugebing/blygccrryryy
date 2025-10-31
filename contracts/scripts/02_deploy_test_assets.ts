@@ -53,7 +53,7 @@ async function main() {
   if (network.name === 'sepolia') {
     const usdt = await deployUSDT();
     const nft21 = await deployERC721();
-    envLines.push(`USDT_SEPOLIA=${usdt}`);
+    envLines.push(`USDT_Sepolia=${usdt}`);
     envLines.push(`NFT21_Sepolia=${nft21}`);
   } else if (network.name === 'arbitrumSepolia') {
     const usdt = await deployUSDT();
