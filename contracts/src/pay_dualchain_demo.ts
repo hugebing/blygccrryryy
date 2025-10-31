@@ -133,6 +133,36 @@ const ZERO: Address = '0x0000000000000000000000000000000000000000';
  * Helpers
  * ====================================== */
 
+function eip191PayloadHex(raw: Uint8Array) {
+  const prefix = new TextEncoder().encode(`\x19Ethereum Signed Message:\n${raw.length}`);
+  const payload = new Uint8Array(prefix.length + raw.length);
+  payload.set(prefix, 0);
+  payload.set(raw, prefix.length);
+  return toHex(payload);
+}
+
+
+/** 列印「付款人要簽的」EIP-191 內容（含 personal_sign 參數） */
+function logPayerSignRequest(payer: string, rootHex: `0x${string}`) {
+  const raw = toBytes(rootHex);
+  const payload = eip191PayloadHex(raw);   // 前綴 + 原文（僅用來對照）
+  const digest  = hashMessage({ raw });    // 真正被簽的哈希（僅用來對照）
+
+  console.log('========== PAYER SIGN REQUEST ==========');
+  console.log('[Meaning] 請付款人(EOA)用 EIP-191 對 root 簽名（signMessage / personal_sign）');
+  console.log('[Root (message bytes)]', rootHex);
+  console.log('[EIP-191 payload     ]', payload);
+  console.log('[EIP-191 digest      ]', digest);
+  console.log('[personal_sign params]');
+  console.log(JSON.stringify({
+    method: 'personal_sign',
+    // 大多數錢包：params = [data, account]
+    params: [rootHex, payer],
+  }, null, 2));
+  console.log('（前端可用 window.ethereum.request(...) 呼叫）');
+  console.log('========================================');
+}
+
 // --- 保型包裝，避免被全域 Item 型別（含 43）污染 ---
 function sortPayItems(items: PayItem[]): PayItem[] {
   return Merkle.sortItems(items) as PayItem[];
@@ -206,6 +236,7 @@ async function getSigForChain(
   }
 
   try {
+    // show message
     const sample = (await k.client.account.signMessage({ message: { raw: toBytes(root) } })) as Hex;
     for (const c of deriveWrappersFromSample(sample, ownerSig)) {
       try {
@@ -352,7 +383,7 @@ function buildApprovals(vault: Address, items: PayItem[]) {
   return calls;
 }
 
-/** 將外部 items（可能含 43 等）窄化為目前支援的 20/21/23；strict=true 會丟錯，不然忽略 */
+/** 將外部 items（可能含 43 等）窄化為目前支援的 20/21/23=true 會丟錯，不然忽略 */
 function narrowSupportedItems(items: BaseItem[], strict: boolean): PayItem[] {
   const supported = items.filter(
     (it) => it.ercCode === 20 || it.ercCode === 21 || it.ercCode === 23
@@ -364,7 +395,7 @@ function narrowSupportedItems(items: BaseItem[], strict: boolean): PayItem[] {
     );
     if (unsupported.length) {
       const codes = [...new Set(unsupported.map((x) => x.ercCode))].join(', ');
-      throw new Error(`含不支援的 ercCode: ${codes}（目前僅支援 20/21/23）`);
+      throw new Error(`含不支援的 ercCode: ${codes}（目前僅支援 20/21/23)`);
     }
   }
   return supported;
@@ -374,7 +405,8 @@ function narrowSupportedItems(items: BaseItem[], strict: boolean): PayItem[] {
  * Main export（for import）
  * ====================================== */
 export async function runPayDualChain<T extends BaseItem>(
-  cfg: PayConfig<T>
+  cfg: PayConfig<T>,
+  opts?: { ownerSig?: Hex }
 ): Promise<RunResult> {
   if (!cfg?.perChain?.length) throw new Error('perChain 不可為空');
 
@@ -391,7 +423,7 @@ export async function runPayDualChain<T extends BaseItem>(
     })
   );
 
-  // 2) 窄化 items → 僅 20/21/23；strict 決定是否丟錯
+  // 2) 窄化 items → 僅 20/21/23 決定是否丟錯
   const supportedPerChain: PayItem[][] = kernels.map(({ items }) =>
     narrowSupportedItems(items as BaseItem[], strict)
   );
@@ -416,16 +448,24 @@ export async function runPayDualChain<T extends BaseItem>(
   await Promise.all(kernels.map(({ k }) => ensureDeployed(k)));
 
   // 6) 只簽一次 owner 簽章（用第一個 kernel 的 owner）
-  const ownerSig = (await kernels[0].k.owner.signMessage({
-    message: { raw: toBytes(root) },
-  })) as Hex;
+
+  const payerEOA =
+  (kernels[0].k.owner as any)?.address ??
+  (await (kernels[0].k.owner as any)?.getAddress?.()) ??
+  '<payer-EOA>';
+
+  logPayerSignRequest(payerEOA, root);
+
+  const ownerSig = opts?.ownerSig ?? (await kernels[0].k.owner.signMessage({ message: { raw: toBytes(root) } })) as Hex;
+
+  console.log('[簽章] 已取得 owner 簽章:', ownerSig);
 
   // 7) 為每鏈得到可過 1271 的簽章（封套 / 回退自簽）
   const perChainSig = await Promise.all(
     kernels.map(({ k }) => getSigForChain(k, root, ownerSig))
   );
 
-  // 8) 每鏈上鏈前資產預檢（特別是 721/1155）
+  // 8) 每鏈上鏈前資產預檢（特別是 721/1155） 
   await Promise.all(
     kernels.map(({ k }, i) => precheckHoldings(k, canonical[i]))
   );
