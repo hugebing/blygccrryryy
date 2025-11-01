@@ -1,0 +1,565 @@
+[
+  {
+    "id": "bill-2025-0001",
+    "payeeAddress": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb1",
+    "description": "RWA 資產購買 + NFT 憑證",
+    "assetRules": [
+      {
+        "asset": {
+          "type": "ERC20",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "0x71549C631F6E3a506D2B19f7DEF17E788C9C04f6",
+          "decimals": 6,
+          "chainId": 11155111
+        },
+        "totalRequired": "5000",
+        "chainLimits": [
+          {
+            "chainId": 11155111,
+            "vaultAddress": "0x1234567890123456789012345678901234567890"
+          },
+          {
+            "chainId": 421614,
+            "vaultAddress": "0x2345678901234567890123456789012345678901"
+          },
+          {
+            "chainId": 84532,
+            "vaultAddress": "0x3456789012345678901234567890123456789012"
+          }
+        ]
+      },
+      {
+        "asset": {
+          "type": "ERC721",
+          "symbol": "NFT",
+          "name": "RWA Ownership Certificate",
+          "address": "0xCeE4D76e247482F6CFfd78b007646e5A3725ed9D",
+          "chainId": 11155111,
+          "tokenId": "1234",
+          "collectionName": "RWA 所有權憑證 #721"
+        },
+        "totalRequired": "1",
+        "chainLimits": [
+          {
+            "chainId": 11155111,
+            "vaultAddress": "0x1234567890123456789012345678901234567890"
+          }
+        ]
+      }
+    ],
+    "deadline": 1761919516,
+    "status": "pending",
+    "createdAt": 1761915616526,
+    "updatedAt": 1761915916526,
+    "paymentUrl": "https://pay.咔鏘.com/i/bill-2025-0001"
+  },
+  {
+    "id": "bill-2025-0002",
+    "payeeAddress": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb1",
+    "description": "NFT 藝術品購買",
+    "assetRules": [
+      {
+        "asset": {
+          "type": "ERC20",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "0x71549C631F6E3a506D2B19f7DEF17E788C9C04f6",
+          "decimals": 6,
+          "chainId": 11155111
+        },
+        "totalRequired": "1000",
+        "chainLimits": [
+          {
+            "chainId": 11155111,
+            "vaultAddress": "0x1234567890123456789012345678901234567890"
+          }
+        ]
+      }
+    ],
+    "deadline": 1761917716,
+    "status": "partial",
+    "createdAt": 1761915316526,
+    "updatedAt": 1761915856526,
+    "paymentUrl": "https://pay.咔鏘.com/i/bill-2025-0002"
+  },
+  {
+    "id": "bill-2025-0003",
+    "payeeAddress": "0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199",
+    "description": "已完成的帳單範例",
+    "assetRules": [
+      {
+        "asset": {
+          "type": "ERC20",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "0x71549C631F6E3a506D2B19f7DEF17E788C9C04f6",
+          "decimals": 6,
+          "chainId": 11155111
+        },
+        "totalRequired": "2500",
+        "chainLimits": [
+          {
+            "chainId": 11155111,
+            "vaultAddress": "0x1234567890123456789012345678901234567890"
+          },
+          {
+            "chainId": 421614,
+            "vaultAddress": "0x2345678901234567890123456789012345678901"
+          }
+        ]
+      }
+    ],
+    "deadline": 1761912316,
+    "status": "completed",
+    "createdAt": 1761908716526,
+    "updatedAt": 1761912316526,
+    "paymentUrl": "https://pay.咔鏘.com/i/bill-2025-0003"
+  },
+  {
+    "id": "bill-2025-0006",
+    "payeeAddress": "0xE8F8470C08fF0A6F8D8dc5DabD353D613A83c734",
+    "description": "測試單",
+    "assetRules": [
+      {
+        "asset": {
+          "type": "ERC20",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "0x71549C631F6E3a506D2B19f7DEF17E788C9C04f6",
+          "decimals": 6,
+          "chainId": 11155111
+        },
+        "totalRequired": "100",
+        "chainLimits": [
+          {
+            "chainId": 11155111,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "chainId": 421614,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "chainId": 84532,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "chainId": 11155420,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      {
+        "asset": {
+          "type": "ERC1155",
+          "symbol": "PROPERTY",
+          "name": "房產代幣",
+          "chainId": 11155420,
+          "address": "0x7E64D70D8FE71943987cC8BB7F7e2AEBA67bc3f1",
+          "tokenId": "11",
+          "collectionName": "房產代幣"
+        },
+        "totalRequired": "100",
+        "chainLimits": [
+          {
+            "chainId": 11155420,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      {
+        "asset": {
+          "type": "ERC721",
+          "symbol": "TNFT",
+          "name": "TNFT",
+          "chainId": 84532,
+          "address": "0x69fd0513C9EDDD4bCE675D759509f3EafC5A4b42",
+          "tokenId": "11",
+          "collectionName": "TNFT"
+        },
+        "totalRequired": "1",
+        "chainLimits": [
+          {
+            "chainId": 84532,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          }
+        ]
+      }
+    ],
+    "deadline": 1761919514,
+    "status": "pending",
+    "createdAt": 1761915916531,
+    "updatedAt": 1761915916531,
+    "paymentUrl": "https://pay.咔鏘.com/i/bill-2025-0006"
+  },
+  {
+    "id": "bill-2025-2001",
+    "payeeAddress": "0xE8F8470C08fF0A6F8D8dc5DabD353D613A83c734",
+    "description": "test2",
+    "assetRules": [
+      {
+        "asset": {
+          "type": "ERC1155",
+          "symbol": "PROPERTY",
+          "name": "房產代幣",
+          "chainId": 11155420,
+          "address": "0x7E64D70D8FE71943987cC8BB7F7e2AEBA67bc3f1",
+          "tokenId": "11",
+          "collectionName": "房產代幣"
+        },
+        "totalRequired": "100",
+        "chainLimits": [
+          {
+            "chainId": 11155420,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      {
+        "asset": {
+          "type": "ERC721",
+          "symbol": "TNFT",
+          "name": "TNFT",
+          "chainId": 84532,
+          "address": "0x69fd0513C9EDDD4bCE675D759509f3EafC5A4b42",
+          "tokenId": "11",
+          "collectionName": "TNFT"
+        },
+        "totalRequired": "1",
+        "chainLimits": [
+          {
+            "chainId": 84532,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      {
+        "asset": {
+          "type": "ERC20",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "0x71549C631F6E3a506D2B19f7DEF17E788C9C04f6",
+          "decimals": 6,
+          "chainId": 11155111
+        },
+        "totalRequired": "400",
+        "chainLimits": [
+          {
+            "chainId": 11155111,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "chainId": 421614,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "chainId": 84532,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "chainId": 11155420,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          }
+        ]
+      }
+    ],
+    "deadline": 1762008624,
+    "status": "fulfilled",
+    "createdAt": 1761922225371,
+    "updatedAt": 1761928561447,
+    "paymentUrl": "https://pay.咔鏘.com/i/bill-2025-2001"
+  },
+  {
+    "id": "bill-2025-2030",
+    "payeeAddress": "0xE8F8470C08fF0A6F8D8dc5DabD353D613A83c734",
+    "description": "test_30",
+    "assetRules": [
+      {
+        "asset": {
+          "type": "ERC20",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "0x71549C631F6E3a506D2B19f7DEF17E788C9C04f6",
+          "decimals": 6,
+          "chainId": 11155111
+        },
+        "totalRequired": "700",
+        "chainLimits": [
+          {
+            "chainId": 11155111,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "chainId": 84532,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "chainId": 11155420,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      {
+        "asset": {
+          "type": "ERC1155",
+          "symbol": "PROPERTY",
+          "name": "房產代幣",
+          "chainId": 11155420,
+          "address": "0x7E64D70D8FE71943987cC8BB7F7e2AEBA67bc3f1",
+          "tokenId": "11",
+          "collectionName": "房產代幣"
+        },
+        "totalRequired": "100",
+        "chainLimits": [
+          {
+            "chainId": 11155420,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      {
+        "asset": {
+          "type": "ERC721",
+          "symbol": "TNFT",
+          "name": "TNFT",
+          "chainId": 84532,
+          "address": "0x69fd0513C9EDDD4bCE675D759509f3EafC5A4b42",
+          "tokenId": "11",
+          "collectionName": "TNFT"
+        },
+        "totalRequired": "1",
+        "chainLimits": [
+          {
+            "chainId": 84532,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          }
+        ]
+      }
+    ],
+    "deadline": 1762027005,
+    "status": "fulfilled",
+    "createdAt": 1761940606214,
+    "updatedAt": 1761940813713,
+    "paymentUrl": "https://pay.咔鏘.com/i/bill-2025-2030"
+  },
+  {
+    "id": "bill-2025-2031",
+    "payeeAddress": "0xE9C9698e29e123474b311E4b82bCC22E9f86212E",
+    "description": "test_31",
+    "assetRules": [
+      {
+        "asset": {
+          "type": "ERC20",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "0x71549C631F6E3a506D2B19f7DEF17E788C9C04f6",
+          "decimals": 6,
+          "chainId": 11155111
+        },
+        "totalRequired": "700",
+        "chainLimits": [
+          {
+            "chainId": 11155111,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "chainId": 84532,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "chainId": 11155420,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      {
+        "asset": {
+          "type": "ERC1155",
+          "symbol": "PROPERTY",
+          "name": "房產代幣",
+          "chainId": 11155420,
+          "address": "0x7E64D70D8FE71943987cC8BB7F7e2AEBA67bc3f1",
+          "tokenId": "11",
+          "collectionName": "房產代幣"
+        },
+        "totalRequired": "100",
+        "chainLimits": [
+          {
+            "chainId": 11155420,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      {
+        "asset": {
+          "type": "ERC721",
+          "symbol": "TNFT",
+          "name": "TNFT",
+          "chainId": 84532,
+          "address": "0x69fd0513C9EDDD4bCE675D759509f3EafC5A4b42",
+          "tokenId": "11",
+          "collectionName": "TNFT"
+        },
+        "totalRequired": "1",
+        "chainLimits": [
+          {
+            "chainId": 84532,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          }
+        ]
+      }
+    ],
+    "deadline": 1762027466,
+    "status": "fulfilled",
+    "createdAt": 1761941066825,
+    "updatedAt": 1761941371584,
+    "paymentUrl": "https://pay.咔鏘.com/i/bill-2025-2031"
+  },
+  {
+    "id": "bill-2025-2032",
+    "payeeAddress": "0xE9C9698e29e123474b311E4b82bCC22E9f86212E",
+    "description": "test32",
+    "assetRules": [
+      {
+        "asset": {
+          "type": "ERC20",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "0x71549C631F6E3a506D2B19f7DEF17E788C9C04f6",
+          "decimals": 6,
+          "chainId": 11155111
+        },
+        "totalRequired": "99.87",
+        "chainLimits": [
+          {
+            "chainId": 11155111,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "chainId": 84532,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "chainId": 11155420,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      {
+        "asset": {
+          "type": "ERC1155",
+          "symbol": "PROPERTY",
+          "name": "房產代幣",
+          "chainId": 11155420,
+          "address": "0x7E64D70D8FE71943987cC8BB7F7e2AEBA67bc3f1",
+          "tokenId": "11",
+          "collectionName": "房產代幣"
+        },
+        "totalRequired": "100",
+        "chainLimits": [
+          {
+            "chainId": 11155420,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      {
+        "asset": {
+          "type": "ERC721",
+          "symbol": "TNFT",
+          "name": "TNFT",
+          "chainId": 84532,
+          "address": "0x69fd0513C9EDDD4bCE675D759509f3EafC5A4b42",
+          "tokenId": "11",
+          "collectionName": "TNFT"
+        },
+        "totalRequired": "1",
+        "chainLimits": [
+          {
+            "chainId": 84532,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          }
+        ]
+      }
+    ],
+    "deadline": 1762028253,
+    "status": "fulfilled",
+    "createdAt": 1761941853750,
+    "updatedAt": 1761941991650,
+    "paymentUrl": "https://pay.咔鏘.com/i/bill-2025-2032"
+  },
+  {
+    "id": "bill-2025-2033",
+    "payeeAddress": "0xE9C9698e29e123474b311E4b82bCC22E9f86212E",
+    "description": "test-33",
+    "assetRules": [
+      {
+        "asset": {
+          "type": "ERC20",
+          "symbol": "USDT",
+          "name": "Tether USD",
+          "address": "0x71549C631F6E3a506D2B19f7DEF17E788C9C04f6",
+          "decimals": 6,
+          "chainId": 11155111
+        },
+        "totalRequired": "700",
+        "chainLimits": [
+          {
+            "chainId": 11155111,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "chainId": 84532,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          },
+          {
+            "chainId": 11155420,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      {
+        "asset": {
+          "type": "ERC1155",
+          "symbol": "PROPERTY",
+          "name": "房產代幣",
+          "chainId": 11155420,
+          "address": "0x7E64D70D8FE71943987cC8BB7F7e2AEBA67bc3f1",
+          "tokenId": "11",
+          "collectionName": "房產代幣"
+        },
+        "totalRequired": "100",
+        "chainLimits": [
+          {
+            "chainId": 11155420,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          }
+        ]
+      },
+      {
+        "asset": {
+          "type": "ERC721",
+          "symbol": "TNFT",
+          "name": "TNFT",
+          "chainId": 84532,
+          "address": "0x69fd0513C9EDDD4bCE675D759509f3EafC5A4b42",
+          "tokenId": "11",
+          "collectionName": "TNFT"
+        },
+        "totalRequired": "1",
+        "chainLimits": [
+          {
+            "chainId": 84532,
+            "vaultAddress": "0x0000000000000000000000000000000000000000"
+          }
+        ]
+      }
+    ],
+    "deadline": 1762028599,
+    "status": "fulfilled",
+    "createdAt": 1761942201123,
+    "updatedAt": 1761942398924,
+    "paymentUrl": "https://pay.咔鏘.com/i/bill-2025-2033"
+  }
+]

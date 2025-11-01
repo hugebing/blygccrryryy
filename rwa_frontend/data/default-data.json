@@ -1,0 +1,220 @@
+{
+  "bills": [
+    {
+      "id": "bill-2025-0001",
+      "payeeAddress": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb1",
+      "description": "RWA 資產購買 + NFT 憑證",
+      "assetRules": [
+        {
+          "asset": {
+            "type": "ERC20",
+            "symbol": "USDT",
+            "name": "Tether USD",
+            "address": "0x71549C631F6E3a506D2B19f7DEF17E788C9C04f6",
+            "decimals": 6,
+            "chainId": 11155111
+          },
+          "totalRequired": "5000",
+          "chainLimits": [
+            { "chainId": 11155111, "vaultAddress": "0x1234567890123456789012345678901234567890" },
+            { "chainId": 421614, "vaultAddress": "0x2345678901234567890123456789012345678901" },
+            { "chainId": 84532, "vaultAddress": "0x3456789012345678901234567890123456789012" }
+          ]
+        },
+        {
+          "asset": {
+            "type": "ERC721",
+            "symbol": "NFT",
+            "name": "RWA Ownership Certificate",
+            "address": "0xCeE4D76e247482F6CFfd78b007646e5A3725ed9D",
+            "chainId": 11155111,
+            "tokenId": "1234",
+            "collectionName": "RWA 所有權憑證 #721"
+          },
+          "totalRequired": "1",
+          "chainLimits": [
+            { "chainId": 11155111, "vaultAddress": "0x1234567890123456789012345678901234567890" }
+          ]
+        }
+      ],
+      "deadline": 0,
+      "status": "pending",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "paymentUrl": "https://pay.咔鏘.com/i/bill-2025-0001"
+    },
+    {
+      "id": "bill-2025-0002",
+      "payeeAddress": "0x742d35Cc6634C0532925a3b844Bc9e7595f0bEb1",
+      "description": "NFT 藝術品購買",
+      "assetRules": [
+        {
+          "asset": {
+            "type": "ERC20",
+            "symbol": "USDT",
+            "name": "Tether USD",
+            "address": "0x71549C631F6E3a506D2B19f7DEF17E788C9C04f6",
+            "decimals": 6,
+            "chainId": 11155111
+          },
+          "totalRequired": "1000",
+          "chainLimits": [
+            { "chainId": 11155111, "vaultAddress": "0x1234567890123456789012345678901234567890" }
+          ]
+        }
+      ],
+      "deadline": 0,
+      "status": "partial",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "paymentUrl": "https://pay.咔鏘.com/i/bill-2025-0002"
+    },
+    {
+      "id": "bill-2025-0003",
+      "payeeAddress": "0x8626f6940E2eb28930eFb4CeF49B2d1F2C9C1199",
+      "description": "已完成的帳單範例",
+      "assetRules": [
+        {
+          "asset": {
+            "type": "ERC20",
+            "symbol": "USDT",
+            "name": "Tether USD",
+            "address": "0x71549C631F6E3a506D2B19f7DEF17E788C9C04f6",
+            "decimals": 6,
+            "chainId": 11155111
+          },
+          "totalRequired": "2500",
+          "chainLimits": [
+            { "chainId": 11155111, "vaultAddress": "0x1234567890123456789012345678901234567890" },
+            { "chainId": 421614, "vaultAddress": "0x2345678901234567890123456789012345678901" }
+          ]
+        }
+      ],
+      "deadline": 0,
+      "status": "fulfilled",
+      "createdAt": 0,
+      "updatedAt": 0,
+      "paymentUrl": "https://pay.咔鏘.com/i/bill-2025-0003"
+    }
+  ],
+  "events": {
+    "bill-2025-0001": [
+      {
+        "id": "event-001",
+        "billId": "bill-2025-0001",
+        "type": "bill.created",
+        "message": "帳單已建立",
+        "timestamp": 0
+      },
+      {
+        "id": "event-002",
+        "billId": "bill-2025-0001",
+        "type": "deposit.detected",
+        "chainId": 11155111,
+        "txHash": "0xabc123...",
+        "address": "0x9876543210987654321098765432109876543210",
+        "amount": "1500",
+        "message": "Sepolia 鏈偵測到 1500 USDT 入金",
+        "timestamp": 0
+      }
+    ],
+    "bill-2025-0002": [
+      {
+        "id": "event-003",
+        "billId": "bill-2025-0002",
+        "type": "bill.created",
+        "message": "帳單已建立",
+        "timestamp": 0
+      }
+    ],
+    "bill-2025-0003": [
+      {
+        "id": "event-005",
+        "billId": "bill-2025-0003",
+        "type": "bill.created",
+        "message": "帳單已建立",
+        "timestamp": 0
+      },
+      {
+        "id": "event-006",
+        "billId": "bill-2025-0003",
+        "type": "fulfillment.completed",
+        "message": "達標完成",
+        "timestamp": 0
+      }
+    ]
+  },
+  "vaults": [
+    {
+      "chainId": 11155111,
+      "address": "0x1234567890123456789012345678901234567890",
+      "balance": "15000",
+      "claimable": "5000",
+      "locked": "10000",
+      "status": "active",
+      "updatedAt": 0
+    },
+    {
+      "chainId": 421614,
+      "address": "0x2345678901234567890123456789012345678901",
+      "balance": "8000",
+      "claimable": "3000",
+      "locked": "5000",
+      "status": "active",
+      "updatedAt": 0
+    },
+    {
+      "chainId": 84532,
+      "address": "0x3456789012345678901234567890123456789012",
+      "balance": "1200",
+      "claimable": "500",
+      "locked": "700",
+      "status": "low_balance",
+      "lastSignatureHash": "0xabc123def456...",
+      "updatedAt": 0
+    }
+  ],
+  "payments": [
+    {
+      "id": "payment-001",
+      "billId": "bill-2025-0001",
+      "payerAddress": "0x9876543210987654321098765432109876543210",
+      "chainId": 11155111,
+      "assetSymbol": "USDT",
+      "amount": "1500",
+      "txHash": "0xabc123def456789...",
+      "status": "confirmed",
+      "timestamp": 0
+    }
+  ],
+  "paymentProgress": {
+    "bill-2025-0001": {
+      "billId": "bill-2025-0001",
+      "payerAddress": "0x9876543210987654321098765432109876543210",
+      "chainPayments": [
+        {
+          "chainId": 11155111,
+          "asset": {
+            "type": "ERC20",
+            "symbol": "USDT",
+            "name": "Tether USD",
+            "address": "0x71549C631F6E3a506D2B19f7DEF17E788C9C04f6",
+            "decimals": 6,
+            "chainId": 11155111
+          },
+          "amount": "1500",
+          "required": "3000",
+          "stage": "confirmed",
+          "txHash": "0xabc123...",
+          "confirmations": 12,
+          "timestamp": 0
+        }
+      ],
+      "totalPaid": "1500",
+      "totalRequired": "5000",
+      "isFulfilled": false,
+      "updatedAt": 0
+    }
+  }
+}
+

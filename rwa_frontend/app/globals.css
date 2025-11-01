@@ -1,0 +1,805 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 咔鏘 整合主題 - 黑灰 + 金色 #9E844A */
+:root {
+  /* 背景色系 */
+  --bg: #0b0d10;         /* 黑灰背景 */
+  --bg-2: #101418;
+  --panel: #12161c;
+  --card: #151a20;
+  
+  /* 文字色系 */
+  --text: #e6eaf0;
+  --muted: #a4afbd;
+  
+  /* 邊框與分隔 */
+  --line: #232a33;
+  
+  /* 主色調 - 金色 */
+  --gold: #9E844A;       /* 指定金色 */
+  --gold-2: #c9ab6d;
+  --gold-dim: #6b5a32;
+  
+  /* 狀態色 - 擴充 */
+  --success: #37d399;
+  --success-dim: #1a5f46;
+  --warning: #fbbf24;
+  --warning-dim: #7a6018;
+  --error: #ef4444;
+  --error-dim: #7a1f1f;
+  --info: #60a5fa;
+  --info-dim: #1e3a6f;
+  
+  /* 進度色 */
+  --progress-bg: #0f141a;
+  --progress-pending: #4a5568;
+  --progress-active: var(--gold);
+  --progress-success: var(--success);
+  --progress-error: var(--error);
+  
+  /* 舊版相容 */
+  --ok: var(--success);
+  --warn: var(--warning);
+  --err: var(--error);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  background: linear-gradient(180deg, #0a0c10, #0c0f14 60%, #0a0c10);
+  color: var(--text);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", system-ui, sans-serif;
+  line-height: 1.45;
+  min-height: 100vh;
+}
+
+a {
+  color: var(--gold-2);
+  text-decoration: none;
+}
+
+/* 包裝容器 */
+.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px;
+}
+
+/* 導航欄 */
+.navbar {
+  background: linear-gradient(180deg, #0f141a, #0d1117);
+  border-bottom: 1px solid #1a212a;
+  padding: 10px 12px;
+}
+
+/* Logo */
+.logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: conic-gradient(from 220deg, var(--gold), #7c6840, #55482d, var(--gold));
+}
+
+/* 卡片 */
+.card {
+  background: linear-gradient(180deg, #131820, #11161d);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, .5), inset 0 0 0 1px rgba(255, 255, 255, .02);
+}
+
+/* 按鈕 */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 10px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, #131920, #12171d);
+  color: var(--text);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn:hover {
+  border-color: #2b3440;
+}
+
+.btn-primary {
+  border-color: var(--gold);
+  background: linear-gradient(180deg, #3a2f1a, #2a2315);
+  color: #f4dfb0;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(180deg, #42351f, #2f2618);
+}
+
+.btn-ghost {
+  background: transparent;
+  color: #c6cfda;
+}
+
+.btn-ghost:hover {
+  background: rgba(255, 255, 255, .05);
+}
+
+.btn-circle {
+  border-radius: 50%;
+  padding: 10px;
+  width: 40px;
+  height: 40px;
+}
+
+.btn-sm {
+  padding: 8px;
+  width: 36px;
+  height: 36px;
+}
+
+/* 標籤 */
+.tab {
+  padding: 9px 16px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, #12171c, #10151a);
+  color: #cfd7e4;
+  font-size: 13px;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  font-weight: 500;
+}
+
+.tab:hover {
+  border-color: #2b3440;
+  background: linear-gradient(180deg, #161c23, #141a21);
+}
+
+.tab.active {
+  border-color: var(--gold);
+  background: linear-gradient(180deg, #1a1510, #16120d);
+  color: #f4dfb0;
+  font-weight: 600;
+}
+
+/* 響應式標籤 */
+@media(max-width: 640px) {
+  .tab {
+    font-size: 11.5px;
+    padding: 7px 10px;
+    min-height: 34px;
+  }
+}
+
+@media(max-width: 480px) {
+  .tab {
+    font-size: 11px;
+    padding: 6px 8px;
+    min-height: 32px;
+  }
+}
+
+/* Pill 標記 */
+.pill {
+  border: 1px solid var(--line);
+  background: #121821;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-size: 12px;
+  color: #d9e1ec;
+}
+
+/* Chip */
+.chip {
+  padding: 7px 14px;
+  border-radius: 999px;
+  background: #141b23;
+  border: 1px solid #283140;
+  color: #cfe3ff;
+  font-size: 12.5px;
+  user-select: none;
+  white-space: nowrap;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  min-height: 32px;
+  text-align: center;
+  flex-shrink: 0; /* 防止被壓縮 */
+  width: auto; /* 確保自適應寬度 */
+  box-sizing: border-box;
+}
+
+.chip.toggle {
+  cursor: pointer;
+  transition: all .15s;
+}
+
+.chip.toggle:hover {
+  border-color: #3a4555;
+  background: #1a2129;
+  transform: translateY(-1px);
+}
+
+.chip.toggle.sel {
+  background: linear-gradient(180deg, #2a2315, #1f1a10);
+  border-color: var(--gold);
+  color: #f4dfb0;
+  font-weight: 600;
+}
+
+/* 響應式 Chip */
+@media(max-width: 640px) {
+  .chip {
+    font-size: 11.5px;
+    padding: 6px 12px;
+    min-height: 30px;
+  }
+}
+
+@media(max-width: 480px) {
+  .chip {
+    font-size: 11px;
+    padding: 5px 10px;
+    min-height: 28px;
+  }
+}
+
+/* 列表項 */
+.li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: linear-gradient(180deg, #131920, #12171d);
+  margin: 8px 0;
+  cursor: pointer;
+  transition: all .15s;
+  min-height: 48px;
+}
+
+.li:hover {
+  border-color: #2b3440;
+  background: linear-gradient(180deg, #161c23, #141a21);
+}
+
+.li.active {
+  border-color: var(--gold);
+  background: linear-gradient(180deg, #1a1510, #16120d);
+}
+
+/* 分隔線 */
+.divider {
+  height: 1px;
+  background: #1c232c;
+  margin: 10px 0;
+}
+
+/* 工具類 */
+.row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* 防止 row 內的子元素被過度壓縮 */
+.row > * {
+  flex-shrink: 0;
+}
+
+.row-nowrap {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.muted {
+  color: var(--muted);
+}
+
+.sub {
+  font-size: 12px;
+  color: #aab4c3;
+  line-height: 1.4;
+}
+
+/* 輸入框 */
+input,
+select,
+textarea {
+  background: #0f141a;
+  border: 1px solid #24303a;
+  border-radius: 10px;
+  padding: 10px 12px;
+  color: #d8e0ea;
+  min-width: 120px;
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: #12171d;
+}
+
+input:disabled,
+select:disabled,
+textarea:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* QR 碼 */
+.qr {
+  width: 160px;
+  height: 160px;
+  border-radius: 12px;
+  background: repeating-linear-gradient(45deg, #0d1218 0 8px, #0b0f14 8px 16px);
+  border: 1px solid #222a33;
+}
+
+/* 進度條 */
+.progress {
+  width: 100%;
+  height: 8px;
+  border-radius: 999px;
+  background: #0f141a;
+  border: 1px solid #22303a;
+  overflow: hidden;
+}
+
+.progress>i {
+  display: block;
+  height: 100%;
+  width: 40%;
+  background: linear-gradient(90deg, var(--gold), #c7b07a);
+}
+
+/* 表格 */
+.tbl {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 8px;
+}
+
+.tbl th {
+  font-size: 12px;
+  color: #b7c3d3;
+  text-align: left;
+  padding: 0 10px;
+}
+
+.tbl td {
+  background: #0f141a;
+  border: 1px solid #1d2630;
+  border-left: none;
+  border-right: none;
+  padding: 8px 10px;
+}
+
+/* 固定 CTA（Mobile） */
+.sticky-cta {
+  position: sticky;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(180deg, rgba(12, 16, 22, .2), rgba(12, 16, 22, .8));
+  backdrop-filter: blur(6px);
+  padding: 10px;
+  border-top: 1px solid #1a2129;
+  display: flex;
+  gap: 8px;
+}
+
+/* RWD Grid */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+@media(min-width: 768px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
+
+@media(min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 24px;
+  }
+}
+
+/* 響應式工具類 */
+@media(max-width: 767px) {
+  .wrap {
+    padding: 10px 12px;
+  }
+  
+  .navbar .wrap {
+    padding: 10px 12px !important;
+    gap: 12px !important;
+  }
+  
+  .card {
+    padding: 14px;
+  }
+  
+  .tab {
+    font-size: 12px;
+    padding: 7px 12px;
+  }
+  
+  .chip {
+    font-size: 11px;
+    padding: 5px 10px;
+  }
+  
+  /* 手機版隱藏品牌文字 */
+  .brand-text {
+    display: none;
+  }
+  
+  /* Logo 更靠左 */
+  .logo {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* 側邊選單動畫 */
+.sidebar-menu {
+  animation: slideInLeft 0.3s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* 中等螢幕顯示品牌文字 */
+@media(min-width: 768px) {
+  .brand-text {
+    display: block;
+  }
+  
+  /* 隱藏品牌副標題 */
+  .brand-subtitle {
+    display: none;
+  }
+}
+
+/* 大螢幕顯示完整品牌資訊 */
+@media(min-width: 1024px) {
+  .brand-subtitle {
+    display: block;
+  }
+}
+
+/* 動畫 */
+@keyframes slide-in {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slide-in {
+  animation: slide-in 0.3s ease-out;
+}
+
+/* 隱藏 */
+.hide {
+  display: none !important;
+}
+
+/* RainbowKit 側邊欄內按鈕優化 */
+[data-rk] button {
+  max-width: 100% !important;
+  overflow: hidden !important;
+}
+
+[data-rk] button > div {
+  overflow: hidden !important;
+  text-overflow: ellipsis !important;
+  white-space: nowrap !important;
+}
+
+/* Loading */
+.loading {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, .1);
+  border-radius: 50%;
+  border-top-color: var(--gold);
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   RWD 響應式設計
+   ============================================ */
+
+/* 響應式斷點 */
+/* 
+  sm: 640px   (手機橫向)
+  md: 768px   (平板直向)
+  lg: 1024px  (平板橫向 / 小筆電)
+  xl: 1280px  (桌面)
+  2xl: 1536px (大螢幕)
+*/
+
+/* 基礎響應式工具類 */
+@media (max-width: 640px) {
+  .hide-mobile {
+    display: none !important;
+  }
+  
+  .wrap {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  
+  /* 手機版 - 減小字體 */
+  h1 {
+    font-size: 24px !important;
+  }
+  
+  h2 {
+    font-size: 20px !important;
+  }
+  
+  h3 {
+    font-size: 18px !important;
+  }
+  
+  /* 按鈕全寬 */
+  .btn-mobile-full {
+    width: 100% !important;
+  }
+  
+  /* 卡片減少內距 */
+  .card {
+    padding: 16px !important;
+  }
+  
+  /* Logo 縮小 */
+  .logo {
+    width: 32px !important;
+    height: 32px !important;
+  }
+  
+  .brand-text h1 {
+    font-size: 15px !important;
+  }
+  
+  .brand-subtitle {
+    display: none !important;
+  }
+  
+  /* Grid 自動調整 */
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 768px) {
+  .hide-tablet {
+    display: none !important;
+  }
+  
+  .wrap {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+}
+
+@media (min-width: 769px) {
+  .hide-desktop {
+    display: none !important;
+  }
+}
+
+/* Navbar 響應式 */
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(12px);
+  background: rgba(11, 13, 16, 0.9);
+  border-bottom: 1px solid var(--line);
+}
+
+@media (max-width: 640px) {
+  .navbar {
+    padding: 8px 12px !important;
+  }
+}
+
+/* Sidebar 響應式 */
+.sidebar-menu {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 320px;
+  background: linear-gradient(180deg, #0f141a, #0d1117);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+  transform: translateX(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+@media (max-width: 640px) {
+  .sidebar-menu {
+    width: 280px !important;
+  }
+}
+
+/* 響應式表格 */
+@media (max-width: 768px) {
+  table {
+    font-size: 12px !important;
+  }
+  
+  table th,
+  table td {
+    padding: 8px !important;
+  }
+  
+  /* 隱藏部分欄位 */
+  .table-hide-mobile {
+    display: none !important;
+  }
+}
+
+/* 響應式 Grid */
+.responsive-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+@media (max-width: 640px) {
+  .responsive-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* 響應式 Flex */
+.responsive-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+@media (max-width: 640px) {
+  .responsive-row {
+    flex-direction: column !important;
+  }
+  
+  .responsive-row > * {
+    width: 100% !important;
+  }
+}
+
+/* 觸控優化 */
+@media (hover: none) and (pointer: coarse) {
+  /* 增大觸控目標 */
+  button,
+  a,
+  .chip,
+  .btn {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* 移除 hover 效果 */
+  *:hover {
+    /* 保持原樣，不顯示 hover 狀態 */
+  }
+}
+
+/* 避免橫向滾動 */
+body {
+  overflow-x: hidden;
+}
+
+/* 限制最大寬度，但排除 RainbowKit 相關元素 */
+*:not([data-rk]):not([data-rk] *) {
+  max-width: 100%;
+}
+
+img {
+  height: auto;
+}
+
+/* 響應式間距 */
+@media (max-width: 640px) {
+  .section-spacing {
+    margin-top: 16px !important;
+    margin-bottom: 16px !important;
+  }
+}
+
+@media (min-width: 641px) {
+  .section-spacing {
+    margin-top: 24px !important;
+    margin-bottom: 24px !important;
+  }
+}
+
+/* 彈性盒子 */
+.flex-mobile-col {
+  display: flex;
+}
+
+@media (max-width: 640px) {
+  .flex-mobile-col {
+    flex-direction: column !important;
+  }
+}
+
+/* 字體縮放 */
+@media (max-width: 640px) {
+  .text-responsive {
+    font-size: 14px !important;
+  }
+}
+
+@media (min-width: 641px) {
+  .text-responsive {
+    font-size: 16px !important;
+  }
+}
+
+/* ============================================
+   RainbowKit 彈窗修正 - 簡化版
+   ============================================ */
+
+/* 確保 RainbowKit modal 不受全局 max-width 限制 */
+[role="dialog"][data-rk],
+[role="dialog"][data-rk] * {
+  max-width: none !important;
+}
+
+/* RainbowKit 背景遮罩全屏 */
+div[data-rk][style*="position: fixed"][style*="inset: 0"] {
+  max-width: none !important;
+  width: 100vw !important;
+}
